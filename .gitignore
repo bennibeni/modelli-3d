@@ -18,3 +18,6 @@ Desktop.ini
 # Modelli su Vercel Blob (oltre 100 MB o comunque esterni): nell'app resta solo model.glb
 public/models/*
 !public/models/model.glb
+
+.vercel
+.env*

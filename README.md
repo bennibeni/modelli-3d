@@ -79,14 +79,24 @@ modelli, segnati `remote: true` in `models.js`, stanno su
 ### Primo caricamento
 
 1. Su Vercel: **Storage → Create Database → Blob**, accesso **Public**, e
-   collega lo store al progetto.
-2. Copia `.env.example` in `.env.local` e incolla il valore di
-   `BLOB_READ_WRITE_TOKEN` dalla pagina dello store.
-3. `npm run upload-models`: carica i cinque file in `models/` sullo store
-   (salta quelli già presenti con la stessa dimensione; `-- --force` li
-   ricarica) e stampa l'indirizzo della cartella.
-4. Nel progetto Vercel, **Settings → Environment Variables**: aggiungi
-   `NEXT_PUBLIC_MODELS_URL` con quell'indirizzo, poi fai un nuovo deploy.
+   collega lo store al progetto (**Connect Project**) spuntando anche
+   **Development**. Vercel aggiunge `BLOB_STORE_ID` alle variabili del progetto;
+   senza Development lo script locale fallisce con «OIDC is enabled for this
+   project, but not for the "development" environment».
+2. Nella cartella del progetto:
+   ```powershell
+   npx vercel link
+   npx vercel env pull .env.local
+   npm run upload-models
+   ```
+   `env pull` scrive in `.env.local` `BLOB_STORE_ID` e un `VERCEL_OIDC_TOKEN`
+   temporaneo (dura alcune ore: se scade, ripeti il comando). Lo script carica
+   i cinque file in `models/` sullo store (salta quelli già presenti con la
+   stessa dimensione; `-- --force` li ricarica) e stampa l'indirizzo della
+   cartella.
+3. Nel progetto Vercel, **Settings → Environment Variables**: aggiungi
+   `NEXT_PUBLIC_MODELS_URL` con quell'indirizzo per Production e Preview, poi
+   fai un nuovo deploy.
 
 Con il piano Hobby Blob è gratuito entro 1 GB di spazio (i cinque modelli ne
 occupano 831 MB) e 10 GB di traffico al mese; oltre, Vercel avvisa ma non
