@@ -58,6 +58,7 @@ Per usare un'altra porta: `npm run dev -- --port 3113`.
   - `legSpread.js`: apertura delle gambe sullo scheletro `Castell_*`.
   - `movementPreview.js`: amplificazione del movimento di prova.
 - `public/models/`: `model.glb` (nell'app) e, solo in locale, gli altri cinque.
+- `src/proxy.js`: accesso con password (Basic Auth), con i test.
 - `scripts/upload-models.mjs`: caricamento dei modelli remoti su Vercel Blob.
 
 ## Modelli su Vercel Blob
@@ -90,6 +91,22 @@ modelli, segnati `remote: true` in `models.js`, stanno su
 Con il piano Hobby Blob è gratuito entro 1 GB di spazio (i cinque modelli ne
 occupano 831 MB) e 10 GB di traffico al mese; oltre, Vercel avvisa ma non
 addebita nulla.
+
+## Accesso con password
+
+Come in Moderna, `src/proxy.js` protegge con Basic Auth tutte le richieste al
+sito: pagina, file statici e `model.glb`. Su Vercel, in **Settings →
+Environment Variables**, imposta `SITE_AUTH_USER` (predefinito `torre`) e
+`SITE_AUTH_PASSWORD` per Production e Preview, poi fai un nuovo deploy. Non
+usare il prefisso `NEXT_PUBLIC_` e non mettere le credenziali nel repository.
+
+- Su Vercel, senza password il sito risponde 503 (accesso non configurato).
+- In locale, senza password l'accesso resta libero; per provarla imposta le
+  stesse variabili in `.env.local` e riavvia il server.
+- I modelli su Blob sono pubblici: la password protegge il sito, non i file
+  sullo store, che restano scaricabili da chi ne conosce l'indirizzo esatto.
+- La protezione vale dai nuovi deploy: quelli precedenti vanno rimossi o
+  protetti nelle impostazioni Vercel.
 
 Il footer **All projects** rimanda all'[indice degli altri progetti](https://links-page-bennibeni.vercel.app/),
 come negli altri progetti recenti.

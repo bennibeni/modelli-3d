@@ -20,6 +20,8 @@ Usa JavaScript (JSX), CSS semplice e three.js senza React Three Fiber.
 - `movementPreview.js` amplifica la clip `Respiro_di_prova` rispetto alla posa
   iniziale; le altre clip restano invariate.
 - Non introdurre dipendenze dal progetto Next14.
+- `src/proxy.js` protegge tutto il sito con Basic Auth (`SITE_AUTH_USER`,
+  `SITE_AUTH_PASSWORD`); non aggiungere un matcher che escluda percorsi.
 - Conservare il footer con link `https://links-page-bennibeni.vercel.app/`.
 - Leggere i documenti pertinenti in `node_modules/next/dist/docs/` prima di
   modificare routing, layout o configurazione Next.js.
