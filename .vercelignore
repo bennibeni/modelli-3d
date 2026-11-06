@@ -1,0 +1,3 @@
+# Per i deploy con la CLI di Vercel: i modelli grandi stanno su Blob
+public/models/*
+!public/models/model.glb

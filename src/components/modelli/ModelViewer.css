@@ -1,0 +1,164 @@
+.mv {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 72rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background: #f6f7f2;
+  padding: 1.5rem 1rem;
+}
+
+.mv--fullscreen {
+  max-width: none;
+  height: 100dvh;
+  overflow: auto;
+}
+
+.mv-kicker {
+  margin: 0;
+  color: #0e7490;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mv-title {
+  margin: 0.5rem 0 0;
+  color: #083344;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.mv-intro {
+  margin: 0.5rem 0 0;
+  color: #52525b;
+  font-size: 0.875rem;
+}
+
+.mv-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mv-controls {
+  gap: 0.5rem;
+}
+
+.mv-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.mv-small {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.mv-button {
+  border: 1px solid #67e8f9;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+  color: #083344;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+
+.mv-button:hover:not(:disabled) {
+  background: #cffafe;
+}
+
+.mv-button:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 2px;
+}
+
+.mv-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.mv-retry {
+  margin-top: 1rem;
+}
+
+.mv-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgb(21 94 117 / 30%);
+  border-radius: 1.5rem;
+  background: #182530;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%);
+}
+
+.mv-canvas {
+  width: 100%;
+  height: 65svh;
+  min-height: 20rem;
+  max-height: 47.5rem;
+  touch-action: none;
+}
+
+.mv--fullscreen .mv-stage {
+  flex: 1;
+  min-height: 15rem;
+}
+
+.mv--fullscreen .mv-canvas {
+  height: 100%;
+  min-height: 15rem;
+  max-height: none;
+}
+
+.mv-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(24 37 48 / 95%);
+  padding: 1.5rem;
+  color: #fff;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.mv-overlay p {
+  margin: 0;
+}
+
+.mv-range {
+  width: 12rem;
+  accent-color: #0891b2;
+}
+
+.mv-note {
+  margin: 0;
+  color: #71717a;
+  font-size: 0.75rem;
+}
+
+.mv-full {
+  width: 100%;
+}
+
+.mv-status {
+  margin: 0;
+  color: #52525b;
+  font-size: 0.875rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mv-button {
+    transition: none;
+  }
+}

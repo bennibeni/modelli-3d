@@ -1,0 +1,20 @@
+node_modules/
+.next/
+out/
+dist/
+coverage/
+test-results/
+playwright-report/
+.vercel/
+.env*
+!.env.example
+*.log
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Modelli su Vercel Blob (oltre 100 MB o comunque esterni): nell'app resta solo model.glb
+public/models/*
+!public/models/model.glb
