@@ -8,7 +8,8 @@ l'apertura delle gambe.
 
 ## Avvio
 
-Richiede Node.js 22.12 o successivo e npm. In locale non richiede chiavi API né file `.env`.
+Richiede Node.js 22.12 o successivo e npm. Per il visualizzatore locale non servono
+chiavi API; `.env.local` è opzionale per password e configurazione Blob.
 
 ```powershell
 cd "C:\Users\torre\Desktop\I miei progetti\Modelli 3D"
@@ -17,7 +18,33 @@ npm run dev
 ```
 
 Apri l'indirizzo indicato nel terminale (normalmente `http://localhost:3000`).
-Per usare un'altra porta: `npm run dev -- --port 3113`.
+Per usare la porta 3001: `npm run dev -- --port 3001`, quindi apri
+`http://localhost:3001`.
+
+## Versioni e aggiornamento
+
+Next.js ed `eslint-config-next` sono aggiornati dalla 16.4.2 alla **16.4.6**;
+React e React DOM restano alla **19.3.1**. Le versioni esatte sono registrate
+in `package.json` e `package-lock.json`: usa `npm ci` per riprodurle.
+
+Per applicare lo stesso aggiornamento a una copia ancora alla 16.4.2, ferma
+il server di sviluppo ed esegui:
+
+```powershell
+npm install --save-exact next@16.4.6 eslint-config-next@16.4.6
+npm run check
+npm run dev -- --port 3001
+```
+
+Verifica le versioni con `npm ls next eslint-config-next --depth=0`. L'upgrade
+locale non aggiorna il sito su Vercel: per pubblicarlo serve un nuovo deploy.
+
+Controlli eseguiti il **20 novembre 2026** dopo l'aggiornamento:
+
+- `npm run check`: formattazione, lint/accessibilità, 14 test e build superati.
+- `npm audit --omit=dev`: zero vulnerabilità segnalate nelle dipendenze di produzione.
+- `npm audit`: restano 11 segnalazioni nelle dipendenze di sviluppo (7 moderate,
+  4 alte). Questo è l'esito di quel controllo, non una garanzia per verifiche future.
 
 ## Comandi
 
@@ -26,7 +53,7 @@ Per usare un'altra porta: `npm run dev -- --port 3113`.
 | `npm run dev`           | Server di sviluppo                        |
 | `npm run build`         | Build di produzione                       |
 | `npm start`             | Avvia la build di produzione              |
-| `npm test`              | Test dell'elenco dei modelli              |
+| `npm test`              | Test dei modelli e della Basic Auth       |
 | `npm run test:watch`    | Test durante lo sviluppo                  |
 | `npm run lint`          | Controlla JavaScript e React              |
 | `npm run lint:a11y`     | Include le regole di accessibilità        |
