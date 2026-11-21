@@ -40,6 +40,12 @@ export const CATALOG = [
     remote: true,
   },
   {
+    file: "cute-girl-static.glb",
+    label: "Cute Girl (statico)",
+    size: "18,1 MB",
+    remote: true,
+  },
+  {
     file: "the-girl-static.glb",
     label: "The Girl (statico)",
     size: "15,5 MB",
