@@ -15,10 +15,11 @@ describe("elenco dei modelli", () => {
     expect(megabytes({ size: "523,8 MB" })).toBe(523.8);
   });
 
-  it("va dal più leggero al più pesante", () => {
-    const sizes = buildModels().map(megabytes);
+  it("apre il modello originale e poi va dal più leggero al più pesante", () => {
+    const [first, ...rest] = buildModels();
+    expect(first.label).toBe("Modello originale");
+    const sizes = rest.map(megabytes);
     expect(sizes).toEqual([...sizes].sort((a, b) => a - b));
-    expect(buildModels()[0].label).toBe("Modello originale");
   });
 
   it("non modifica l'elenco di partenza", () => {

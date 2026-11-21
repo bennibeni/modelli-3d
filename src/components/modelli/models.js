@@ -5,8 +5,8 @@
 // modelli remoti si leggono da public/models: comodo in locale, dove i file ci
 // sono già, e non consuma il traffico gratuito di Blob.
 //
-// La dimensione serve sia all'etichetta della tendina sia all'ordine: dal più
-// leggero al più pesante, e il primo è quello che si apre all'avvio.
+// La dimensione serve sia all'etichetta della tendina sia all'ordine: prima il
+// modello nell'app, che si apre all'avvio, poi i remoti dal più leggero.
 export const CATALOG = [
   {
     file: "female-warrior-rigged.glb",
@@ -63,8 +63,12 @@ export function modelUrl(item, remoteBase) {
   return `${base}/${item.file}`;
 }
 
+// Il modello nell'app viene per primo (si apre all'avvio senza toccare Blob),
+// poi i remoti dal più leggero al più pesante.
 export function buildModels(remoteBase) {
-  return sortBySize(CATALOG).map((item) => ({
+  const local = CATALOG.filter((item) => !item.remote);
+  const remote = sortBySize(CATALOG.filter((item) => item.remote));
+  return [...local, ...remote].map((item) => ({
     ...item,
     url: modelUrl(item, remoteBase),
   }));
