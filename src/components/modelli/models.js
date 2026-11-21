@@ -11,32 +11,38 @@ export const CATALOG = [
   {
     file: "female-warrior-rigged.glb",
     label: "Guerriera con scheletro",
-    size: "523,8 MB",
+    size: "75,6 MB",
     remote: true,
   },
   {
     file: "sigma-girl-reconstructed-rigged.glb",
     label: "Sigma Girl ricostruita, senza abiti",
-    size: "36,5 MB",
+    size: "7,6 MB",
     remote: true,
   },
   {
     file: "sigma-girl-rigged.glb",
     label: "Sigma Girl con scheletro",
-    size: "72,5 MB",
+    size: "15,7 MB",
     remote: true,
   },
   { file: "model.glb", label: "Modello originale", size: "8,6 MB" },
   {
     file: "forest-goddess-static.glb",
     label: "Forest Goddess (statico)",
-    size: "120,8 MB",
+    size: "41,0 MB",
+    remote: true,
+  },
+  {
+    file: "sigma-girl-v2-static.glb",
+    label: "Sigma Girl 2 (statico)",
+    size: "14,0 MB",
     remote: true,
   },
   {
     file: "the-girl-static.glb",
     label: "The Girl (statico)",
-    size: "77,3 MB",
+    size: "15,5 MB",
     remote: true,
   },
 ];
